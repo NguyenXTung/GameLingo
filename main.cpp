@@ -636,7 +636,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     }
                 }
                 }
-
+        system("cls");
     }
     SDL_RenderPresent(renderer);
     Mix_FreeMusic(music);
