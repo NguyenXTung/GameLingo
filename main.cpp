@@ -202,14 +202,7 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
     SDL_RenderFillRect(renderer, &box);
     string textlives = to_string(lives);
     renderTextToCenterOfRect(renderer, textlives,FONT, SDL_Color{255,255,255}, 60, box);
-    box.w = 55;
-    box.h = 50;
-    box.x = 50;
-    box.y = 90;
-    SDL_SetRenderDrawColor(renderer, 200, 0, 0, 255);
-    SDL_RenderFillRect(renderer, &box);
-    SDL_Texture* Heart = loadTexture("Heart.png", renderer);
-    renderTexture(Heart,renderer, 45, 40, 55, 95);
+    
 
     box.w = 95;
     box.h = 50;
@@ -219,6 +212,22 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
     SDL_RenderFillRect(renderer, &box);
     string texthints = to_string(lifeline);
     renderTextToCenterOfRect(renderer, texthints,FONT, SDL_Color{255,255,255}, 60, box);
+    
+    SDL_RenderPresent(renderer);
+}
+// chuan bi cho tro choi
+void setup(SDL_Window* window, SDL_Renderer* renderer){
+    help(window, renderer);
+    showpoint(window, renderer, point, lives);
+    SDL_Rect box;
+    box.w = 55;
+    box.h = 50;
+    box.x = 50;
+    box.y = 90;
+    SDL_SetRenderDrawColor(renderer, 200, 0, 0, 255);
+    SDL_RenderFillRect(renderer, &box);
+    SDL_Texture* Heart = loadTexture("Heart.png", renderer);
+    renderTexture(Heart,renderer, 45, 40, 55, 95);
     box.w = 55;
     box.h = 50;
     box.x = 50;
@@ -228,11 +237,7 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
     SDL_Texture* Goiy = loadTexture("Hints.png", renderer);
     renderTexture(Goiy,renderer, 45, 40, 55, 145);
     SDL_RenderPresent(renderer);
-}
-// chuan bi cho tro choi
-void setup(SDL_Window* window, SDL_Renderer* renderer){
-    help(window, renderer);
-    showpoint(window, renderer, point, lives);
+    
     nhaptudien();
     keyword = randomkeyword(ROW);
     beginword = "";
