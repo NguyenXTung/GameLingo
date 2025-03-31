@@ -22,6 +22,14 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
         infor.y = 0;
         SDL_Texture* BarA = loadTexture("Bar2.png", renderer);
         renderTexture(BarA,renderer, infor.w, infor.h, infor.x, infor.y);
+        SDL_Rect helps;
+        helps.w = 300;
+        helps.h = 60;
+        helps.x = 850;
+        helps.y = 300;
+        renderTextToRightOfRect(renderer, "[UP]: +1 LETTER", "KeedySans.ttf", {255, 255, 255, 255}, 30, helps);
+        helps.y += 40;
+        renderTextToRightOfRect(renderer, "[DOWN]: -1 LETTER", "KeedySans.ttf", {255, 255, 255, 255}, 30, helps);
         SDL_Event e;
         while(true){
         if ( SDL_WaitEvent(&e) == 0) SDL_Delay(100);
