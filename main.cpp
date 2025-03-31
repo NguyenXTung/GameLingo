@@ -439,6 +439,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
                         Sleep(3000);
+                        if (point > Highest){
+                            Highest = point;
+                            saveMaxScore();
+                        }
                         int check = restartgame(window, renderer, point, Highest);
                         if(check == 1){
                             SDL_RenderClear(renderer);
