@@ -50,7 +50,7 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
                     }
             }
     drawBoard(window, renderer, ROW);
-    string text = "Number of letter: " + to_string(ROW);
+    string text = "Number of letters: " + to_string(ROW);
     renderTextToCenterOfRect(renderer, text, "KeedySans.ttf", {255, 255, 255, 255}, 60, infor);
     SDL_RenderPresent(renderer);
     }
