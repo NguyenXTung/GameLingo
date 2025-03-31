@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cstdlib>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -61,6 +62,7 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
     string text = "Number of letters: " + to_string(ROW);
     renderTextToCenterOfRect(renderer, text, "KeedySans.ttf", {255, 255, 255, 255}, 60, infor);
     SDL_RenderPresent(renderer);
+    system("cls");
     }
     return ROW;
     SDL_RenderClear(renderer);
