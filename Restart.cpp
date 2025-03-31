@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -61,6 +62,7 @@ int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highe
     text = to_string(point);
     renderTextToRightOfRect(renderer, text, "KeedySans.ttf", {255, 255, 255, 255}, 60, points2);
     SDL_RenderPresent(renderer);
+    system("cls");
     SDL_Event e;
     while(true){
     if ( SDL_WaitEvent(&e) == 0) SDL_Delay(100);
