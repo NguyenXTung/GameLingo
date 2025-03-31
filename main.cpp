@@ -235,7 +235,6 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     showpoint(window, renderer, point, lives);
     nhaptudien();
     keyword = randomkeyword(ROW);
-    cerr << keyword << endl;
     beginword = "";
     for(int i = 0; i < ROW; i++){
         beginword += ".";
@@ -354,7 +353,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     drawActivateRect(window, renderer, ROW, k, j,guess);
                     renderTextToCenterOfRect(renderer, SDL_GetKeyName(e.key.keysym.sym), FONT, SDL_Color{255,255,255}, 36*8/ROW, filled_rect);
                     SDL_RenderPresent(renderer);
-                    cerr << guess << endl;
                 }
                 //fix word
                 else if((e.key.keysym.sym) == SDLK_BACKSPACE){
@@ -373,7 +371,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         j = 0;
                     }
                     drawActivateRect(window, renderer, ROW, k, j,guess);
-                    cerr << guess << endl;
                 }
                 else if((e.key.keysym.sym) == SDLK_LEFT){
                     SDL_Rect filled_rect;
@@ -392,7 +389,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         j = ROW-1;
                     }
                     drawActivateRect(window, renderer, ROW, k, j,guess);
-                    cerr << guess << endl;
                 }
                 else if((e.key.keysym.sym) == SDLK_RIGHT){
                     SDL_Rect filled_rect;
@@ -411,7 +407,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         j = 0;
                     }
                     drawActivateRect(window, renderer, ROW, k, j,guess);
-                    cerr << guess << endl;
                 }
                 //guess word, next turn
                 else if((e.key.keysym.sym) == SDLK_RETURN){
@@ -548,7 +543,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     drawActivateRow(window, renderer, ROW, k, guess);
                     drawActivateRect(window, renderer, ROW, k, j,guess);
                     }
-                    cerr << guess << endl;
                 }
                 else if((e.key.keysym.sym) == SDLK_DELETE){
                         //in ra thông báo thua cuộc
@@ -631,9 +625,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     } else{
                         cerr << "No lifeline remaining" << endl;
                     }
-                }
-                else if(e.key.keysym.sym == SDLK_2){
-                    cerr << Highest << endl;
                 }
                 }
 
