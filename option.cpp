@@ -26,9 +26,9 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
         SDL_Rect text;
         text.w = 300;
         text.h = 60;
-        text.x = 280;
+        text.x = 450;
         text.y = 600;
-        renderTextToCenterOfRect(renderer, "[ENTER] or [ESC] to return.", "KeedySans.ttf", {255, 255, 255, 255}, 50, text);
+        renderTextToCenterOfRect(renderer, "[ENTER] or [ESC] to return", "KeedySans.ttf", {255, 255, 255, 255}, 50, text);
         SDL_Rect helps;
         helps.w = 300;
         helps.h = 60;
