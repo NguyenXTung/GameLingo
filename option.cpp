@@ -23,6 +23,12 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
         infor.y = 0;
         SDL_Texture* BarA = loadTexture("Bar2.png", renderer);
         renderTexture(BarA,renderer, infor.w, infor.h, infor.x, infor.y);
+        SDL_Rect text;
+        text.w = 300;
+        text.h = 60;
+        text.x = 280;
+        text.y = 600;
+        renderTextToCenterOfRect(renderer, "[ENTER] or [ESC] to return.", "KeedySans.ttf", {255, 255, 255, 255}, 50, text);
         SDL_Rect helps;
         helps.w = 300;
         helps.h = 60;
