@@ -202,7 +202,7 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
     SDL_RenderFillRect(renderer, &box);
     string textlives = to_string(lives);
     renderTextToCenterOfRect(renderer, textlives,FONT, SDL_Color{255,255,255}, 60, box);
-    
+
 
     box.w = 95;
     box.h = 50;
@@ -212,7 +212,7 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
     SDL_RenderFillRect(renderer, &box);
     string texthints = to_string(lifeline);
     renderTextToCenterOfRect(renderer, texthints,FONT, SDL_Color{255,255,255}, 60, box);
-    
+
     SDL_RenderPresent(renderer);
 }
 // chuan bi cho tro choi
@@ -237,9 +237,10 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     SDL_Texture* Goiy = loadTexture("Hints.png", renderer);
     renderTexture(Goiy,renderer, 45, 40, 55, 145);
     SDL_RenderPresent(renderer);
-    
+
     nhaptudien();
     keyword = randomkeyword(ROW);
+    cerr << keyword << endl;
     beginword = "";
     for(int i = 0; i < ROW; i++){
         beginword += ".";
@@ -251,10 +252,15 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     beginword[0] = keyword[0];
     beginword[ROW-1] = keyword[ROW-1];
     }
+    int j = 0;
+    for(int w = 0; w < ROW; w++){
+        if(beginword[w] != '.') j++;
+        else break;
+    }
     guess = beginword;
     drawBoard(window, renderer, ROW);
     drawActivateRow(window, renderer, ROW, 0, guess);
-    drawActivateRect(window, renderer, ROW, 0, 0,guess);
+    drawActivateRect(window, renderer, ROW, 0, j,guess);
 }
 // dung goi y
 void hint(SDL_Window* window, SDL_Renderer* renderer, int k){
@@ -334,6 +340,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
     a = 0;
     setup(window, renderer);
     int k = 0, j = 0;
+    for(int w = 0; w < ROW; w++){
+        if(beginword[w] != '.') j++;
+        else break;
+    }
     bool play = true;
     SDL_Event e;
     while (play) {
@@ -352,6 +362,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     SDL_SetRenderDrawColor(renderer, 0, 0, 250, 255);
                     SDL_RenderFillRect(renderer, &filled_rect);
                     j++;
+                    for(int w = j; w < ROW; w++){
+                        if(guess[w] != '.') j++;
+                        else break;
+                    }
                     if(j >= ROW){
                         j = ROW-1;
                     }
@@ -435,6 +449,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         showkeyword(window, renderer, ROW, ROW-1);
                         if(lives > 0) Sleep(2000);
                         if(lives <= 0){
+                        // in ra thông báo kết thúc game
                         SDL_Texture* logo = loadTexture("Loser.png", renderer);
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
@@ -451,6 +466,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                             Mix_PlayMusic(music, -1);
                             k = 0;
                             j = 0;
+                            for(int w = 0; w < ROW; w++){
+                                if(beginword[w] != '.') j++;
+                                else break;
+                            }
                             point = 0;
                             lives = 3;
                             lifeline = 1;
@@ -468,6 +487,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                                 setup(window, renderer);
                                 k = 0;
                                 j = 0;
+                                for(int w = 0; w < ROW; w++){
+                                    if(beginword[w] != '.') j++;
+                                    else break;
+                                }
                             }
                         }
                     }
@@ -480,8 +503,8 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                             cerr << "Failed to play sound effects! Mix_Error: " << Mix_GetError() << endl;
                         }
                         k--;
-                        point += ROW*(7+mode*3) + (ROW-k)*(3+mode*2);
-                        a += ROW*(7+mode*3) + (ROW-k)*(3+mode*2);
+                        point += (ROW*(7+mode*3) + (ROW-k)*(3+mode*2))*ROW/4;
+                        a += (ROW*(7+mode*3) + (ROW-k)*(3+mode*2))*ROW/4;
                         if(a > 500){
                             a -= 500;
                             lifeline++;
@@ -545,9 +568,18 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         setup(window, renderer);
                         k = 0;
                         j = 0;
+                        for(int w = 0; w < ROW; w++){
+                            if(beginword[w] != '.') j++;
+                            else break;
+                        }
                         }
                     if(nextrow){
                     j = 0;
+                    for(int w = 0; w < ROW; w++){
+                        if(beginword[w] != '.') j++;
+                        else break;
+                    }
+                    if(j = ROW) j = ROW-1;
                     guess = beginword;
                     drawActivateRow(window, renderer, ROW, k, guess);
                     drawActivateRect(window, renderer, ROW, k, j,guess);
@@ -596,6 +628,10 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                             Mix_PlayMusic(music, -1);
                             k = 0;
                             j = 0;
+                            for(int w = 0; w < ROW; w++){
+                                if(beginword[w] != '.') j++;
+                                else break;
+                            }
                             point = 0;
                             lives = 3;
                             lifeline = 1;
@@ -613,11 +649,19 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                                 setup(window, renderer);
                                 k = 0;
                                 j = 0;
+                                for(int w = 0; w < ROW; w++){
+                                    if(beginword[w] != '.') j++;
+                                    else break;
+                                }
                             }
                     }
                 //clear word
                 else if((e.key.keysym.sym) == SDLK_SPACE){
                     j = 0;
+                    for(int w = 0; w < ROW; w++){
+                        if(beginword[w] != '.') j++;
+                        else break;
+                    }
                     guess = beginword;
                     drawActivateRow(window, renderer, ROW, k, guess);
                     drawActivateRect(window, renderer, ROW, k, j,guess);
@@ -626,7 +670,11 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     if(lifeline > 0){
                     hint(window, renderer, k);
                     //drawActivateRow(window, renderer, ROW, k, guess);
-                    j++;
+                    j = 0;
+                    for(int w = 0; w < ROW; w++){
+                        if(beginword[w] != '.') j++;
+                        else break;
+                    }
                     if(j >= ROW) j = ROW-1;
                     drawActivateRect(window, renderer, ROW, k, j, guess);
                     lifeline--;
@@ -673,6 +721,7 @@ void menu(SDL_Window* window, SDL_Renderer* renderer){
     renderTexture(BarC,renderer, optionC.w, optionC.h, optionC.x, optionC.y);
     renderTextToCenterOfRect(renderer, "QUIT", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionC);
     SDL_RenderPresent( renderer );
+    system("cls");
     SDL_Event e;
     while(true){
     if ( SDL_WaitEvent(&e) == 0) SDL_Delay(100);
