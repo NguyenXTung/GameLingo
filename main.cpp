@@ -579,6 +579,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         if(beginword[w] != '.') j++;
                         else break;
                     }
+                    if(j >= ROW) j = ROW-1;
                     guess = beginword;
                     drawActivateRow(window, renderer, ROW, k, guess);
                     drawActivateRect(window, renderer, ROW, k, j,guess);
