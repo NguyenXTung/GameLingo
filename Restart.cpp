@@ -11,7 +11,6 @@
 using namespace std;
 // trang thong bao diem sau khi ket thuc game
 int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highest){
-    system("cls");
     SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     SDL_Rect optionA;
