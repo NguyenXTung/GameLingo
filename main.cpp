@@ -320,7 +320,6 @@ void saveMaxScore() {
 // trochoi
 void game(SDL_Window* window, SDL_Renderer* renderer){
     SDL_RenderClear(renderer);
-    system("cls");
     SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     Mix_Music* music = Mix_LoadMUS("Sound/BedTheme.mp3");
@@ -684,7 +683,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     }
                 }
                 }
-        system("cls");
     }
     SDL_RenderPresent(renderer);
     Mix_FreeMusic(music);
@@ -692,7 +690,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
 }
 // trang chu chinh
 void menu(SDL_Window* window, SDL_Renderer* renderer){
-    system("cls");
     SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     SDL_Texture* logo = loadTexture("Gpx/logoLingo.png", renderer);
