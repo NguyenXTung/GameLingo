@@ -52,10 +52,10 @@ void nhaptudien(){
 }
 void checkword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
     //invalidword
-    Mix_Chunk* sound1 = Mix_LoadWAV("Green.wav");
-    Mix_Chunk* sound2 = Mix_LoadWAV("Yellow.wav");
-    Mix_Chunk* sound3 = Mix_LoadWAV("Blue.wav");
-    Mix_Chunk* sound4 = Mix_LoadWAV("Invalid.wav");
+    Mix_Chunk* sound1 = Mix_LoadWAV("Sound/Green.wav");
+    Mix_Chunk* sound2 = Mix_LoadWAV("Sound/Yellow.wav");
+    Mix_Chunk* sound3 = Mix_LoadWAV("Sound/Blue.wav");
+    Mix_Chunk* sound4 = Mix_LoadWAV("Sound/Invalid.wav");
     if (!sound1 || !sound2 || !sound3 || !sound4) {
         cerr << "Failed to load sound effects! Mix_Error: " << Mix_GetError() << endl;
     }
@@ -226,7 +226,7 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     box.y = 90;
     SDL_SetRenderDrawColor(renderer, 200, 0, 0, 255);
     SDL_RenderFillRect(renderer, &box);
-    SDL_Texture* Heart = loadTexture("Heart.png", renderer);
+    SDL_Texture* Heart = loadTexture("Gpx/Heart.png", renderer);
     renderTexture(Heart,renderer, 45, 40, 55, 95);
     box.w = 55;
     box.h = 50;
@@ -234,7 +234,7 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     box.y = 140;
     SDL_SetRenderDrawColor(renderer, 0, 100, 0, 255);
     SDL_RenderFillRect(renderer, &box);
-    SDL_Texture* Goiy = loadTexture("Hints.png", renderer);
+    SDL_Texture* Goiy = loadTexture("Gpx/Hints.png", renderer);
     renderTexture(Goiy,renderer, 45, 40, 55, 145);
     SDL_RenderPresent(renderer);
 
@@ -263,7 +263,7 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
 }
 // dung goi y
 void hint(SDL_Window* window, SDL_Renderer* renderer, int k){
-    Mix_Chunk* sfxhint = Mix_LoadWAV("Hint.wav");
+    Mix_Chunk* sfxhint = Mix_LoadWAV("Sound/Hint.wav");
     if (!sfxhint) {
         cerr << "Failed to load sound effects! Mix_Error: " << Mix_GetError() << endl;
     }
@@ -320,14 +320,14 @@ void saveMaxScore() {
 // trochoi
 void game(SDL_Window* window, SDL_Renderer* renderer){
     SDL_RenderClear(renderer);
-    SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+    SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
-    Mix_Music* music = Mix_LoadMUS("BedTheme.mp3");
+    Mix_Music* music = Mix_LoadMUS("Sound/BedTheme.mp3");
     if (!music) {
         cerr << "Failed to load music! Mix_Error: " << Mix_GetError() << endl;
     }
-    Mix_Chunk* win = Mix_LoadWAV("WinnerTheme.wav");
-    Mix_Chunk* lose = Mix_LoadWAV("LoserTheme.wav");
+    Mix_Chunk* win = Mix_LoadWAV("Sound/WinnerTheme.wav");
+    Mix_Chunk* lose = Mix_LoadWAV("Sound/LoserTheme.wav");
     if (!win || !lose) {
         cerr << "Failed to load sound effects! Mix_Error: " << Mix_GetError() << endl;
     }
@@ -449,7 +449,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         if(lives > 0) Sleep(2000);
                         if(lives <= 0){
                         // in ra thông báo kết thúc game
-                        SDL_Texture* logo = loadTexture("Loser.png", renderer);
+                        SDL_Texture* logo = loadTexture("Gpx/Loser.png", renderer);
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
                         Sleep(3000);
@@ -460,7 +460,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         int check = restartgame(window, renderer, point, Highest);
                         if(check == 1){
                             SDL_RenderClear(renderer);
-                            SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+                            SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
                             SDL_RenderCopy( renderer, background, NULL, NULL);
                             Mix_PlayMusic(music, -1);
                             k = 0;
@@ -480,7 +480,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         }
                         } else{
                                 SDL_RenderClear(renderer);
-                                SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+                                SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
                                 SDL_RenderCopy( renderer, background, NULL, NULL);
                                 Mix_PlayMusic(music, -1);
                                 setup(window, renderer);
@@ -561,7 +561,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         SDL_RenderPresent( renderer );
                         Sleep(2000-150*ROW);
                         SDL_RenderClear(renderer);
-                        SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+                        SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
                         SDL_RenderCopy( renderer, background, NULL, NULL);
                         Mix_PlayMusic(music, -1);
                         setup(window, renderer);
@@ -611,7 +611,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         showkeyword(window, renderer, ROW, ROW-1);
                         if(lives > 0) Sleep(2000);
                         if(lives <= 0){
-                        SDL_Texture* logo = loadTexture("Loser.png", renderer);
+                        SDL_Texture* logo = loadTexture("Gpx/Loser.png", renderer);
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
                         Sleep(3000);
@@ -622,7 +622,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         int check = restartgame(window, renderer, point, Highest);
                         if(check == 1){
                             SDL_RenderClear(renderer);
-                            SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+                            SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
                             SDL_RenderCopy( renderer, background, NULL, NULL);
                             Mix_PlayMusic(music, -1);
                             k = 0;
@@ -642,7 +642,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         }
                         } else{
                                 SDL_RenderClear(renderer);
-                                SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+                                SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
                                 SDL_RenderCopy( renderer, background, NULL, NULL);
                                 Mix_PlayMusic(music, -1);
                                 setup(window, renderer);
@@ -691,16 +691,16 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
 }
 // trang chu chinh
 void menu(SDL_Window* window, SDL_Renderer* renderer){
-    SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+    SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
-    SDL_Texture* logo = loadTexture("logoLingo.png", renderer);
+    SDL_Texture* logo = loadTexture("Gpx/logoLingo.png", renderer);
     renderTexture(logo,renderer, 876, 168, SCREEN_WIDTH/2-438, SCREEN_HEIGHT/2-184);
     SDL_Rect optionA;
     optionA.w = 300;
     optionA.h = 60;
     optionA.x = SCREEN_WIDTH / 2 -optionA.w/2;
     optionA.y = SCREEN_HEIGHT / 2 + optionA.h/2;
-    SDL_Texture* BarA = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarA = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarA,renderer, optionA.w, optionA.h, optionA.x, optionA.y);
     renderTextToCenterOfRect(renderer, "PLAY", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionA);
     SDL_Rect optionB;
@@ -708,7 +708,7 @@ void menu(SDL_Window* window, SDL_Renderer* renderer){
     optionB.h = 60;
     optionB.x = SCREEN_WIDTH / 2 -optionB.w/2;
     optionB.y = SCREEN_HEIGHT / 2 + optionB.h/2+70;
-    SDL_Texture* BarB = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarB = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarB,renderer, optionB.w, optionB.h, optionB.x, optionB.y);
     renderTextToCenterOfRect(renderer, "OPTION", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionB);
     SDL_Rect optionC;
@@ -716,7 +716,7 @@ void menu(SDL_Window* window, SDL_Renderer* renderer){
     optionC.h = 60;
     optionC.x = SCREEN_WIDTH / 2 -optionC.w/2;
     optionC.y = SCREEN_HEIGHT / 2 + optionC.h/2+140;
-    SDL_Texture* BarC = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarC = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarC,renderer, optionC.w, optionC.h, optionC.x, optionC.y);
     renderTextToCenterOfRect(renderer, "QUIT", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionC);
     SDL_RenderPresent( renderer );
