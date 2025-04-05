@@ -11,14 +11,15 @@
 using namespace std;
 // trang thong bao diem sau khi ket thuc game
 int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highest){
-    SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+    system("cls");
+    SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     SDL_Rect optionA;
     optionA.w = 300;
     optionA.h = 60;
     optionA.x = SCREEN_WIDTH / 2 -optionA.w/2;
     optionA.y = SCREEN_HEIGHT / 2 + optionA.h/2-50;
-    SDL_Texture* BarA = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarA = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarA,renderer, optionA.w, optionA.h, optionA.x, optionA.y);
     renderTextToCenterOfRect(renderer, "PLAY AGAIN", "KeedySans.ttf", {255, 255, 255, 255}, 40, optionA);
     SDL_Rect optionB;
@@ -26,7 +27,7 @@ int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highe
     optionB.h = 60;
     optionB.x = SCREEN_WIDTH / 2 -optionB.w/2;
     optionB.y = SCREEN_HEIGHT / 2 + optionB.h/2+20;
-    SDL_Texture* BarB = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarB = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarB,renderer, optionB.w, optionB.h, optionB.x, optionB.y);
     renderTextToCenterOfRect(renderer, "MAIN MENU", "KeedySans.ttf", {255, 255, 255, 255}, 40, optionB);
     double p;
@@ -50,7 +51,7 @@ int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highe
     SDL_SetRenderDrawColor(renderer, 0, 200, 0, 255);
     SDL_RenderFillRect(renderer, &points2);
     if(point >= highest){
-    SDL_Texture* NewRec = loadTexture("NewRecord.png", renderer);
+    SDL_Texture* NewRec = loadTexture("Gpx/NewRecord.png", renderer);
     renderTexture(NewRec,renderer, 210, 70, points.x + 10, points.y + 10);
     }
     string text = to_string(highest);
@@ -62,7 +63,6 @@ int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highe
     text = to_string(point);
     renderTextToRightOfRect(renderer, text, "KeedySans.ttf", {255, 255, 255, 255}, 60, points2);
     SDL_RenderPresent(renderer);
-    system("cls");
     SDL_Event e;
     while(true){
     if ( SDL_WaitEvent(&e) == 0) SDL_Delay(100);
