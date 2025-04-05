@@ -140,7 +140,7 @@ void renderTextToLeftOfRect(SDL_Renderer *renderer, const string &message, const
 }
 SDL_Texture *loadTexture(const char *filename, SDL_Renderer* renderer)
 {
-	SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
+	//SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", filename);
 
 	SDL_Texture *texture = IMG_LoadTexture(renderer, filename);
 	if (texture == NULL)
