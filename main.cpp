@@ -240,7 +240,6 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
 
     nhaptudien();
     keyword = randomkeyword(ROW);
-    cerr << keyword << endl;
     beginword = "";
     for(int i = 0; i < ROW; i++){
         beginword += ".";
