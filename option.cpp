@@ -12,7 +12,6 @@
 using namespace std;
 // dieu chinh tro choi (dieu chinh do dai tu khoa, toi thieu 4 chu, toi da 9 chu)
 int option(SDL_Window* window, SDL_Renderer* renderer){
-    system("cls");
         int ROW = 4;
         SDL_RenderClear(renderer);
         SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
@@ -69,7 +68,6 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
     string text = "Number of letters: " + to_string(ROW);
     renderTextToCenterOfRect(renderer, text, "KeedySans.ttf", {255, 255, 255, 255}, 60, infor);
     SDL_RenderPresent(renderer);
-
     }
     return ROW;
     SDL_RenderClear(renderer);
