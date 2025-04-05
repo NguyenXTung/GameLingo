@@ -1,0 +1,315 @@
+# depslib dependency file v1.0
+1743359639 source:c:\codeblock\gamelingo\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"Begin.h"
+	"Constant.h"
+	"Randomword.h"
+	"DrawGraphic.h"
+	"option.h"
+	"Restart.h"
+	"Help.h"
+	"modegame.h"
+
+1743337658 c:\codeblock\gamelingo\begin.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743338777 source:c:\codeblock\gamelingo\begin.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"Begin.h"
+	"Constant.h"
+
+1742832199 c:\codeblock\gamelingo\constant.h
+	<iostream>
+
+1743359857 source:c:\codeblock\gamelingo\randomword.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<ctime>
+	"Randomword.h"
+
+1742817369 c:\codeblock\gamelingo\randomword.h
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<ctime>
+
+1743359705 source:c:\codeblock\gamelingo\drawgraphic.cpp
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+
+1742830571 c:\codeblock\gamelingo\drawgraphic.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743359857 source:c:\codeblock\gamelingo\option.cpp
+	<iostream>
+	<algorithm>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"option.h"
+
+1743226115 c:\codeblock\gamelingo\option.h
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743265492 c:\codeblock\gamelingo\restart.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743348798 source:c:\codeblock\gamelingo\restart.cpp
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"Restart.h"
+
+1743357679 source:c:\codeblock\gamelingo\help.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+
+1743351714 c:\codeblock\gamelingo\help.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743359857 source:c:\codeblock\gamelingo\modegame.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"modegame.h"
+
+1743358424 c:\codeblock\gamelingo\modegame.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743854993 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\begin.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"Begin.h"
+	"Constant.h"
+
+1743852845 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\begin.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743852845 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\constant.h
+	<iostream>
+
+1743852845 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\drawgraphic.cpp
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+
+1743852845 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\drawgraphic.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743852846 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\help.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+
+1743856285 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\main.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"Begin.h"
+	"Constant.h"
+	"Randomword.h"
+	"DrawGraphic.h"
+	"option.h"
+	"Restart.h"
+	"Help.h"
+	"modegame.h"
+
+1743852846 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\randomword.h
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<ctime>
+
+1743852846 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\option.h
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<windows.h>
+	<string>
+	<cstdlib>
+	<ctime>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+
+1743852846 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\restart.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743852846 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\help.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743852846 c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\modegame.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1743855339 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\modegame.cpp
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"modegame.h"
+
+1743855397 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\option.cpp
+	<iostream>
+	<algorithm>
+	<string>
+	<cstdlib>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"option.h"
+
+1743852846 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\randomword.cpp
+	<iostream>
+	<algorithm>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	<ctime>
+	"Randomword.h"
+
+1743855382 source:c:\users\pc\downloads\gamelingo-main (2)\gamelingo-main\restart.cpp
+	<iostream>
+	<string>
+	<cstdlib>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	"Begin.h"
+	"Constant.h"
+	"DrawGraphic.h"
+	"Restart.h"
+
