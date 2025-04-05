@@ -14,14 +14,14 @@ using namespace std;
 int option(SDL_Window* window, SDL_Renderer* renderer){
         int ROW = 4;
         SDL_RenderClear(renderer);
-        SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+        SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
         SDL_RenderCopy( renderer, background, NULL, NULL);
         SDL_Rect infor;
         infor.w = 700;
         infor.h = 80;
         infor.x = SCREEN_WIDTH / 2 - infor.w/2;
         infor.y = 0;
-        SDL_Texture* BarA = loadTexture("Bar2.png", renderer);
+        SDL_Texture* BarA = loadTexture("Gpx/Bar2.png", renderer);
         renderTexture(BarA,renderer, infor.w, infor.h, infor.x, infor.y);
         SDL_Rect text;
         text.w = 300;
@@ -47,7 +47,7 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
                     if(e.key.keysym.sym == SDLK_UP){
                             if(ROW < 9){
                                 ROW++;
-                                SDL_Texture* BarA = loadTexture("Bar2.png", renderer);
+                                SDL_Texture* BarA = loadTexture("Gpx/Bar2.png", renderer);
                                 renderTexture(BarA,renderer, infor.w, infor.h, infor.x, infor.y);
                             }
                             if(ROW >= 9) ROW = 9;
@@ -55,7 +55,7 @@ int option(SDL_Window* window, SDL_Renderer* renderer){
                     if(e.key.keysym.sym == SDLK_DOWN){
                             if(ROW > 4){
                                 ROW--;
-                                SDL_Texture* BarA = loadTexture("Bar2.png", renderer);
+                                SDL_Texture* BarA = loadTexture("Gpx/Bar2.png", renderer);
                                 renderTexture(BarA,renderer, infor.w, infor.h, infor.x, infor.y);
                             }
                             if(ROW <= 4) ROW = 4;
