@@ -9,14 +9,14 @@
 using namespace std;
 // chon che do choi
 int modegame(SDL_Window* window, SDL_Renderer* renderer){
-    SDL_Texture* background = loadTexture("BgLingo.png", renderer);
+    SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     SDL_Rect optionA;
     optionA.w = 300;
     optionA.h = 60;
     optionA.x = SCREEN_WIDTH / 2 -optionA.w/2;
     optionA.y = SCREEN_HEIGHT / 2 + optionA.h/2-150;
-    SDL_Texture* BarA = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarA = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarA,renderer, optionA.w, optionA.h, optionA.x, optionA.y);
     renderTextToCenterOfRect(renderer, "EASY", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionA);
     SDL_Rect optionB;
@@ -24,7 +24,7 @@ int modegame(SDL_Window* window, SDL_Renderer* renderer){
     optionB.h = 60;
     optionB.x = SCREEN_WIDTH / 2 -optionB.w/2;
     optionB.y = SCREEN_HEIGHT / 2 + optionB.h/2-80;
-    SDL_Texture* BarB = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarB = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarB,renderer, optionB.w, optionB.h, optionB.x, optionB.y);
     renderTextToCenterOfRect(renderer, "MEDIUM", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionB);
     SDL_Rect optionC;
@@ -32,7 +32,7 @@ int modegame(SDL_Window* window, SDL_Renderer* renderer){
     optionC.h = 60;
     optionC.x = SCREEN_WIDTH / 2 -optionC.w/2;
     optionC.y = SCREEN_HEIGHT / 2 + optionC.h/2-10;
-    SDL_Texture* BarC = loadTexture("Bar.png", renderer);
+    SDL_Texture* BarC = loadTexture("Gpx/Bar.png", renderer);
     renderTexture(BarC,renderer, optionC.w, optionC.h, optionC.x, optionC.y);
     renderTextToCenterOfRect(renderer, "HARD", "KeedySans.ttf", {255, 255, 255, 255}, 60, optionC);
     SDL_RenderPresent( renderer );
