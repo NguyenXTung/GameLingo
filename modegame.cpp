@@ -9,6 +9,7 @@
 using namespace std;
 // chon che do choi
 int modegame(SDL_Window* window, SDL_Renderer* renderer){
+    system("cls");
     SDL_Texture* background = loadTexture("Gpx/BgLingo.png", renderer);
     SDL_RenderCopy( renderer, background, NULL, NULL);
     SDL_Rect optionA;
