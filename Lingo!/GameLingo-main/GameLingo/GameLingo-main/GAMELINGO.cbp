@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GAMELINGO" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/GAMELINGO" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/GAMELINGO" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Begin.cpp" />
+		<Unit filename="Begin.h" />
+		<Unit filename="Constant.h" />
+		<Unit filename="DrawGraphic.cpp" />
+		<Unit filename="DrawGraphic.h" />
+		<Unit filename="Help.cpp" />
+		<Unit filename="Help.h" />
+		<Unit filename="Randomword.cpp" />
+		<Unit filename="Randomword.h" />
+		<Unit filename="Restart.cpp" />
+		<Unit filename="Restart.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="modegame.cpp" />
+		<Unit filename="modegame.h" />
+		<Unit filename="option.cpp" />
+		<Unit filename="option.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
