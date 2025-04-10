@@ -61,8 +61,8 @@ Mục tiêu:
 Link video: https://youtu.be/hv2wd_bQPrM?si=IzS8bbM6K0fEaN1Q
 https://youtu.be/5LTsIeG4i1g?si=ZjN9dV0G8qZ2Hfn
 Phần mềm cắt ghép âm thanh: Audacity
-- **Đồ họa:**  
-- File thiết kế đồ họa: https://docs.google.com/presentation/d/1XHELfFAo83Xd1AWEnMCRmylf9OMGt3Nm/edit?usp=sharing&ouid=107205806872279143306&rtpof=true&sd=true
+- **Đồ họa:** Tự thiết kế bằng Powerpoint.
+- File thiết kế đồ họa: https://docs.google.com/presentation/d/1OSEJ_czytIkUU9is3DWGizT-Rfi-DgjO/edit?usp=sharing&ouid=107205806872279143306&rtpof=true&sd=true
 
 **Sử dụng AI hỗ trợ:**  
 - ChatGPT: Hỗ trợ debug code, gợi ý giải pháp kỹ thuật.
