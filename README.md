@@ -24,10 +24,10 @@ Esc: Thoát khỏi game, về trang chủ chính.
 1. **Tính năng tự làm và tự học:**  
    - Hệ thống từ điển: Lấy từ điển tiếng Anh từ link https://github.com/dwyl/english-words
 Nhờ AI tạo từ điển từ khóa gồm các từ tiếng Anh thông dụng, phổ biến
-   - Đồ họa 2D: Sử dụng SDL2 để render hình ảnh, texture, hoạt hình.
+   - Đồ họa 2D: Sử dụng SDL2 và SDL_image để render hình ảnh, texture, hoạt hình.
 		Sử dụng SDL_ttf để render chữ cái
    - Âm thanh: Sử dụng SDL_Mixer để chạy nhạc nền và hiệu ứng âm thanh theo sự kiện.
-   - Menu hệ thống: Giao diện chính, chọn mức độ, điều chỉnh trò chơi.  
+   - Menu hệ thống: Giao diện chính, chọn mức độ, điều chỉnh trò chơi, cài đặt ngôn ngữ giao diện.  
    - Lưu điểm cao: Hệ thống đọc/ghi file lưu điểm cao nhất.  
    - Tính điểm: Điểm sẽ phụ thuộc vào độ dài từ khóa và thời điểm đoán đúng (Đoán càng sớm và từ khóa càng dài, điểm ghi được sẽ càng cao).  
 Các trạng thái của chữ cái sau khi kiểm tra:
