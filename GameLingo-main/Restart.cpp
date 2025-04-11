@@ -51,7 +51,7 @@ int restartgame(SDL_Window* window, SDL_Renderer* renderer, int point, int highe
     points2.y = SCREEN_HEIGHT / 2 + points2.h/2-130;
     SDL_SetRenderDrawColor(renderer, 0, 200, 0, 255);
     SDL_RenderFillRect(renderer, &points2);
-    if(point >= highest && point != 0){
+    if(point >= highest && highest != 0){
     SDL_Texture* NewRec = loadTexture("Gpx/NewRecord.png", renderer);
     renderTexture(NewRec,renderer, 150, 50, points.x + 10, points.y + 10);
     }
