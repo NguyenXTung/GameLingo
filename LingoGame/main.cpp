@@ -634,7 +634,7 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     drawActivateRect(window, renderer, ROW, k, j,guess);
                 }
                 else if((e.key.keysym.sym) == SDLK_LSHIFT){
-                    if(lifeline > 0){
+                    if(lifeline > 0 && beginword != keyword){
                     hint(window, renderer, k);
                     drawActivateRow(window, renderer, ROW, k, guess);
                     j = 0;
