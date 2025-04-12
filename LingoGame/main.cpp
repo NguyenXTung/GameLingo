@@ -19,16 +19,16 @@
 #include "Help.h"
 #include "modegame.h"
 using namespace std;
-int point = 0; // so diem dau game
-int lives = 3; // so mang choi dau game
-int lifeline; //so goi y
+int point = 0;
+int lives = 3; 
+int lifeline;//so goi y
 int a; //a: bien dem so diem da dat de cong goi y (a > 500) thi se cong 1 goi y
-int Highest; //diem cao nhat
+int Highest;
 string keyword;
 string beginword = "";
 string guess;
-vector<string> words; // mang chua cac tu co trong tu dien
-vector<string> keywords; // mang chua cac tu trong kho tu khoa
+vector<string> words;
+vector<string> keywords;
 void nhaptudien(){
     ifstream file1("words.txt");
     ifstream file2("words3.txt");
@@ -58,22 +58,19 @@ void checkword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
     if (!sound1 || !sound2 || !sound3 || !sound4) {
         cerr << "Failed to load sound effects! Mix_Error: " << Mix_GetError() << endl;
     }
-    bool valid = true; // bien kiem tra hop le (true: hop le; false: khong hop le);
-    // kiem tra tu duoc nhap da du chu cai chua (neu chua se tinh la khong hop le)
+    bool valid = true;
     for(int i = 0; i < ROW; i++){
         if(guess[i] == '.'){
             valid = false;
             break;
         }
     }
-    // kiem tra tu duoc nhap co trong tu dien khong (neu khong co se tinh la khong hop le)
     vector<string>::iterator it;
     it = find (words.begin(), words.end(), guess);
     vector<string>::iterator it2;
     it2 = find (keywords.begin(), keywords.end(), guess);
     if (it != words.end() || it2 != keywords.end()) valid = true;
     else valid = false;
-    //animation hang khong hop le
     if(!valid){
     int channel = Mix_PlayChannel(-1, sound4, 0);
     if (channel == -1 ) {
@@ -93,7 +90,6 @@ void checkword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
         SDL_RenderPresent(renderer);
     }
     }
-    // neu tu duoc nhap hop le, bat dau kiem tra tung chu cai
     if(valid){
     int a[26] = {0};
     for(int i = 0; i < ROW; i++){
@@ -178,7 +174,6 @@ void showkeyword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
     }
     Sleep(150);
 }
-// hien thi so diem, so mang, so goi y
 void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives){
     SDL_Rect filled_rect;
     filled_rect.w = 150;
@@ -214,7 +209,6 @@ void showpoint(SDL_Window* window, SDL_Renderer* renderer, int point, int lives)
 
     SDL_RenderPresent(renderer);
 }
-// chuan bi cho tro choi
 void setup(SDL_Window* window, SDL_Renderer* renderer){
     help(window, renderer);
     showpoint(window, renderer, point, lives);
@@ -259,7 +253,6 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     drawActivateRow(window, renderer, ROW, 0, guess);
     drawActivateRect(window, renderer, ROW, 0, j,guess);
 }
-// dung goi y
 void hint(SDL_Window* window, SDL_Renderer* renderer, int k){
     Mix_Chunk* sfxhint = Mix_LoadWAV("Sound/Hint.wav");
     if (!sfxhint) {
@@ -294,18 +287,16 @@ void hint(SDL_Window* window, SDL_Renderer* renderer, int k){
     }
     drawActivateRow(window, renderer, ROW, k, guess);
 }
-// lay highscore tu file diem
 void loadMaxScore() {
     ifstream file("HighScore.txt");
     if (file.is_open()) {
         file >> Highest;
         file.close();
     } else {
-        Highest = 0; // Neu file rong, bien mang gtri = 0
+        Highest = 0;
     }
 }
 
-// Luu gtri highscore ve file diem
 void saveMaxScore() {
     ofstream file("HighScore.txt");
     if (file.is_open()) {
@@ -315,7 +306,6 @@ void saveMaxScore() {
         cerr << "Failed to save highest score!" << endl;
     }
 }
-// trochoi
 void game(SDL_Window* window, SDL_Renderer* renderer){
     SDL_RenderClear(renderer);
     Mix_Music* music = Mix_LoadMUS("Sound/BedTheme.mp3");
@@ -349,7 +339,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
         if ( SDL_WaitEvent(&e) == 0) SDL_Delay(100);
         else if(e.type == SDL_QUIT) quitSDL(window, renderer);
         else if(e.type == SDL_KEYDOWN){
-                //input word
                 if(e.key.keysym.sym == SDLK_ESCAPE){
                     play = false;
                     game = false;
@@ -371,7 +360,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     renderTextToCenterOfRect(renderer, SDL_GetKeyName(e.key.keysym.sym), FONT, SDL_Color{255,255,255}, 36*8/ROW, filled_rect);
                     SDL_RenderPresent(renderer);
                 }
-                //fix word
                 else if((e.key.keysym.sym) == SDLK_BACKSPACE){
                     guess[j] = '.';
                     SDL_Rect filled_rect;
@@ -425,7 +413,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     }
                     drawActivateRect(window, renderer, ROW, k, j,guess);
                 }
-                //guess word, next turn
                 else if((e.key.keysym.sym) == SDLK_RETURN){
                     bool nextrow = true;
                     checkword(window, renderer, ROW, k);
@@ -434,7 +421,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     if(k >= ROW){
                         nextrow = false;
                         if(guess != keyword){
-                        //in ra thông báo thua cuộc
                         Mix_HaltMusic();
                         int channel = Mix_PlayChannel(-1, lose, 0);
                         if (channel == -1 ) {
@@ -447,7 +433,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         showkeyword(window, renderer, ROW, ROW-1);
                         if(lives > 0) Sleep(2000);
                         if(lives <= 0){
-                        // in ra thông báo kết thúc game
                         SDL_Texture* logo = loadTexture("Gpx/Loser.png", renderer);
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
@@ -475,14 +460,12 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     }
                     if(guess == keyword){
                         nextrow = false;
-                        //in ra thông báo thắng game
                         Mix_HaltMusic();
                         int channel = Mix_PlayChannel(-1, win, 0);
                         if (channel == -1 ) {
                             cerr << "Failed to play sound effects! Mix_Error: " << Mix_GetError() << endl;
                         }
                         k--;
-                        // cong thuc cong diem
                         int plus = (ROW+mode)*5 + ROW*(ROW-k-1)*(2+(mode-1)*1);
                         point += plus;
                         a += plus;
@@ -554,8 +537,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                             Sleep(50);
                         }
                         }
-                        //SDL_Texture* win = loadTexture("Winner.png", renderer);
-                        //renderTexture(win,renderer, 876, 140, SCREEN_WIDTH/2-438, SCREEN_HEIGHT/2-70);
                         SDL_RenderPresent( renderer );
                         Sleep(2000-150*ROW);
                         play = false;
@@ -573,7 +554,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                     }
                 }
                 else if((e.key.keysym.sym) == SDLK_DELETE){
-                        //in ra thông báo thua cuộc
                         Mix_HaltMusic();
                         int channel = Mix_PlayChannel(-1, lose, 0);
                         if (channel == -1 ) {
@@ -599,7 +579,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         showkeyword(window, renderer, ROW, ROW-1);
                         if(lives > 0) Sleep(2000);
                         if(lives <= 0){
-                        // in ra thông báo kết thúc game
                         SDL_Texture* logo = loadTexture("Gpx/Loser.png", renderer);
                         renderTexture(logo,renderer, 600, 290, SCREEN_WIDTH/2-300, SCREEN_HEIGHT/2-145);
                         SDL_RenderPresent( renderer );
@@ -658,7 +637,6 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
     Mix_FreeMusic(music);
     SDL_RenderClear(renderer);
 }
-// trang chu chinh
 void menu(SDL_Window* window, SDL_Renderer* renderer){
     string text[4];
     if(language == 0){
