@@ -20,9 +20,9 @@
 #include "modegame.h"
 using namespace std;
 int point = 0;
-int lives = 3; 
-int lifeline;//so goi y
-int a; //a: bien dem so diem da dat de cong goi y (a > 500) thi se cong 1 goi y
+int lives = 3;
+int lifeline;
+int a; //a: bien dem so diem da dat de cong goi y (a > 300) thi se cong 1 goi y
 int Highest;
 string keyword;
 string beginword = "";
@@ -33,8 +33,7 @@ void nhaptudien(){
     ifstream file1("words.txt");
     ifstream file2("words3.txt");
     if (!file1.is_open() || !file2.is_open()) {
-        cerr
-         << "Không thể mở file từ điển!" << endl;
+        cerr << "Không thể mở file từ điển!" << endl;
     }
     string word;
     while (getline(file1, word)) {
@@ -50,7 +49,6 @@ void nhaptudien(){
     file2.close();
 }
 void checkword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
-    //invalidword
     Mix_Chunk* sound1 = Mix_LoadWAV("Sound/Green.wav");
     Mix_Chunk* sound2 = Mix_LoadWAV("Sound/Yellow.wav");
     Mix_Chunk* sound3 = Mix_LoadWAV("Sound/Blue.wav");
@@ -157,7 +155,6 @@ void checkword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
     }
     }
 }
-// hien tu khoa
 void showkeyword(SDL_Window* window, SDL_Renderer* renderer, int ROW, int k){
     for(int i = 0; i < ROW; i++){
         SDL_Rect filled_rect;
@@ -232,6 +229,7 @@ void setup(SDL_Window* window, SDL_Renderer* renderer){
     SDL_RenderPresent(renderer);
     nhaptudien();
     keyword = randomkeyword(ROW);
+    cerr << keyword << endl;
     beginword = "";
     for(int i = 0; i < ROW; i++){
         beginword += ".";
@@ -476,8 +474,8 @@ void game(SDL_Window* window, SDL_Renderer* renderer){
                         filled_rect.y = 30;
                         string text = "+" + to_string(plus);
                         renderTextToLeftOfRect(renderer, text,FONT, SDL_Color{0,255,0}, 50, filled_rect);
-                        if(a > 500){
-                            a -= 500;
+                        if(a >= 300){
+                            a -= 300;
                             if(lifeline >= 3) lifeline = 3; //gioi han so lifeline
                             if(lifeline < 3){
                             lifeline++;
