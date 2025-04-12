@@ -22,7 +22,7 @@ using namespace std;
 int point = 0;
 int lives = 3;
 int lifeline;
-int a; //a: bien dem so diem da dat de cong goi y (a > 300) thi se cong 1 goi y
+int a; //a: bien dem so diem da dat de cong goi y (a >= 300) thi se cong 1 goi y
 int Highest;
 string keyword;
 string beginword = "";
